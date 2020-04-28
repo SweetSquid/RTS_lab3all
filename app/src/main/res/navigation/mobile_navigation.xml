@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_lab31">
+
+    <fragment
+        android:id="@+id/navigation_lab32"
+        android:name="com.example.lab3.ui.lab32.Lab32Fragment"
+        android:label="@string/title_lab32"
+        tools:layout="@layout/fragment_lab32" />
+
+    <fragment
+        android:id="@+id/navigation_lab31"
+        android:name="com.example.lab3.ui.lab31.Lab31Fragment"
+        android:label="@string/title_lab31"
+        tools:layout="@layout/fragment_lab31" />
+
+    <fragment
+        android:id="@+id/navigation_lab33"
+        android:name="com.example.lab3.ui.lab33.Lab33Fragment"
+        android:label="@string/title_lab33"
+        tools:layout="@layout/fragment_lab33" />
+</navigation>

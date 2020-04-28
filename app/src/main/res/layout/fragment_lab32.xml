@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.lab32.Lab32Fragment">
+
+    <TextView
+        android:id="@+id/lab32_deadline_time_title"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lab32_deadline_time_title"
+        app:layout_constraintEnd_toStartOf="@+id/lab32_learning_speed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_deadline_iteration_title" />
+
+    <TextView
+        android:id="@+id/lab32_deadline_iteration_title"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lab32_deadline_iteration_title"
+        app:layout_constraintEnd_toStartOf="@+id/lab32_deadline_iteration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_learning_speed_title" />
+
+    <TextView
+        android:id="@+id/lab32_w1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginRight="139dp"
+        android:text="@string/lab32_w1"
+        app:layout_constraintEnd_toStartOf="@+id/lab32_w2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_deadline_time_title" />
+
+    <TextView
+        android:id="@+id/lab32_w2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginRight="145dp"
+        android:text="@string/lab32_w2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lab32_w1"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_learning_speed" />
+
+    <TextView
+        android:id="@+id/lab32_result_time"
+        android:layout_width="82dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginRight="86dp"
+        android:text="@string/lab32_result_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lab32_iterations"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_w2" />
+
+    <TextView
+        android:id="@+id/lab32_iterations"
+        android:layout_width="66dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginRight="102dp"
+        android:text="@string/lab32_iterations"
+        app:layout_constraintEnd_toStartOf="@+id/lab32_result_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_w1" />
+
+    <TextView
+        android:id="@+id/lab32_result"
+        android:layout_width="110dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginLeft="174dp"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="186dp"
+        android:layout_marginRight="186dp"
+        android:layout_marginBottom="97dp"
+        android:text="@string/lab32_result"
+        app:layout_constraintBottom_toTopOf="@+id/lab32_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_deadline_time_title"
+        app:layout_constraintVertical_bias="0.747" />
+
+    <Spinner
+        android:id="@+id/lab32_deadline_iteration"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:entries="@array/lab32_deadline_iteration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lab32_deadline_iteration_title"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_deadline_time" />
+
+    <Spinner
+        android:id="@+id/lab32_learning_speed"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:entries="@array/lab32_learning_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lab32_deadline_time_title"
+        app:layout_constraintTop_toBottomOf="@+id/lab32_deadline_iteration" />
+
+    <Spinner
+        android:id="@+id/lab32_deadline_time"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:entries="@array/lab32_deadline_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lab32_learning_speed_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/lab32_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/lab32_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lab32_learning_speed_title"
+        android:layout_width="166dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="58dp"
+        android:text="@string/lab32_learning_speed_title"
+        app:layout_constraintEnd_toStartOf="@+id/lab32_deadline_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

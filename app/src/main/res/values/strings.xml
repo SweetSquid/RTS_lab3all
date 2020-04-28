@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">lab3</string>
+    <string name="title_lab31">Lab3.1</string>
+    <string name="title_lab32">Lab3.2</string>
+    <string name="title_lab33">Lab3.3</string>
+    <string name="lab31_input_number">Enter odd number</string>
+    <string name="lab31_button">Factorize</string>
+    <string name="lab31_time">Time in ms</string>
+    <string name="lab31_r1">R1</string>
+    <string name="lab31_r2">R2</string>
+    <string name="lab32_w1">w1</string>
+    <string name="lab32_w2">w2</string>
+    <string name="lab32_result_time">Time in ms</string>
+    <string name="lab32_iterations">iterations</string>
+    <string name="lab32_result">result</string>
+    <string name="lab32_button">train</string>
+    <string name="lab32_success">Success</string>
+    <string name="lab32_failure">Failure</string>
+    <string name="lab32_learning_speed_title">Learning speed</string>
+    <string name="lab32_deadline_iteration_title">Iteration deadline</string>
+    <string name="lab32_deadline_time_title">Time deadline</string>
+    <string-array name="lab32_learning_speed">
+        <item>0.001</item>
+        <item>0.01</item>
+        <item>0.05</item>
+        <item>0.1</item>
+        <item>0.2</item>
+        <item>0.3</item>
+    </string-array>
+    <string-array name="lab32_deadline_iteration">
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+        <item>1000</item>
+    </string-array>
+    <string-array name="lab32_deadline_time">
+        <item>0.5</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+    </string-array>
+    <string name="lab33_button">Train</string>
+    <string name="lab33_result">result</string>
+    <string name="lab33_time">time</string>
+    <string name="lab33_x1">X1</string>
+    <string name="lab33_x2">X2</string>
+    <string name="lab33_x3">X3</string>
+    <string name="lab33_x4">X4</string>
+    <string name="lab33_a">Enter A</string>
+    <string name="lab33_b">Enter B</string>
+    <string name="lab33_c">Enter C</string>
+    <string name="lab33_d">Enter D</string>
+    <string name="lab33_y">Enter Y</string>
+    <string name="lab33_success">SUCCESS</string>
+    <string name="lab33_failure">REACHED MAXIMUM OF ITERATIONS</string>
+</resources>
