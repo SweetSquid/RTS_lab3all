@@ -1,6 +1,7 @@
 package com.example.lab3.ui.lab31;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.lab3.R;
@@ -28,8 +30,8 @@ public class Lab31Fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         View view = v.getRootView();
-        EditText inputNum = view.findViewById(R.id.inputNumber);
-
+        EditText inputNum = view.findViewById(R.id.lab31_inputNumber);
+        EditText timeLimit = view.findViewById(R.id.lab31_timeLimit);
         if (isEmpty(inputNum)) {
             inputNum.setError("Please, enter valid number");
             return;
@@ -38,10 +40,19 @@ public class Lab31Fragment extends Fragment implements View.OnClickListener {
         TextView r2 = view.findViewById(R.id.lab31_r2);
         TextView time = view.findViewById(R.id.lab31_time);
         long[] values;
-        values = factor(Long.parseLong(inputNum.getText().toString()));
-        r1.setText("R1: " + values[0]);
-        r2.setText("R2: " + values[1]);
-        time.setText(String.format("%.2f ms", (double) values[2] / 1_000_000));
+        long inputNumLong = Long.parseLong(inputNum.getText().toString());
+        long timeLimitLong = Long.parseLong(timeLimit.getText().toString());
+        values = factor(inputNumLong);
+        if (timeLimitLong < values[2] / 1_000_000_000) {
+            createErrorAlert(view, "Lasted longer than time limit", "Time limit error");
+            r1.setText("R1: error");
+            r2.setText("R2: error");
+            time.setText(String.format("%.2f ms", (double) values[2] / 1_000_000));
+        } else {
+            r1.setText("R1: " + values[0]);
+            r2.setText("R2: " + values[1]);
+            time.setText(String.format("%.2f ms", (double) values[2] / 1_000_000));
+        }
     }
 
     private boolean isEmpty(EditText etText) {
@@ -68,4 +79,21 @@ public class Lab31Fragment extends Fragment implements View.OnClickListener {
         long sqr = (long) Math.sqrt(N);
         return Math.pow(sqr + 1, 2) == N || sqr * sqr == N;
     }
+
+
+    private void createErrorAlert(View v, String errorMsg, String title) {
+        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(v.getContext());
+        alertBuilder.setTitle(title);
+        alertBuilder
+                .setMessage(errorMsg)
+                .setCancelable(false)
+                .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
+    }
+
 }

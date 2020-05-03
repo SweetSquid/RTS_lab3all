@@ -6,6 +6,7 @@
     <string name="lab31_input_number">Enter odd number</string>
     <string name="lab31_button">Factorize</string>
     <string name="lab31_time">Time in ms</string>
+    <string name="lab31_time_limit">Time limit in s</string>
     <string name="lab31_r1">R1</string>
     <string name="lab31_r2">R2</string>
     <string name="lab32_w1">w1</string>
