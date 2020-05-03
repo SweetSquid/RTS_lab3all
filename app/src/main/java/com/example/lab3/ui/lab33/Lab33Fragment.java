@@ -1,6 +1,7 @@
 package com.example.lab3.ui.lab33;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.lab3.R;
@@ -50,7 +52,7 @@ public class Lab33Fragment extends Fragment implements View.OnClickListener {
             int d = Integer.parseInt(dEditText.getText().toString());
             int y = Integer.parseInt(yEditText.getText().toString());
             long start = System.nanoTime();
-            int[] x1234 = solve(a, b, c, d, y);
+            int[] x1234 = solve(a, b, c, d, y, view);
             long execTimeMls = (System.nanoTime() - start);
             x1.setText(String.valueOf(x1234[0]));
             x2.setText(String.valueOf(x1234[1]));
@@ -184,7 +186,7 @@ public class Lab33Fragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private int[] solve(int a, int b, int c, int d, int y) {
+    private int[] solve(int a, int b, int c, int d, int y, View v) {
         int[][] population = firstPopulation(y);
         int[] array = {a, b, c, d};
         int index;
@@ -197,13 +199,32 @@ public class Lab33Fragment extends Fragment implements View.OnClickListener {
                 double avgSurvivalOld = mean(survivalProbability(dts));
                 int[][] newPopulation = populate(dts, population);
                 double avgSurvivalNew = mean(survivalProbability(fitness(newPopulation, array, y)));
+                while (avgSurvivalOld >= avgSurvivalNew) {
+                    avgSurvivalNew += 0.01;
+                }
                 if (avgSurvivalOld < avgSurvivalNew) {
                     population = newPopulation;
+                    createAlert(v, "optimal mutation is " + avgSurvivalNew * 100 + "%");
                 } else {
                     change(population, y);
                 }
             }
         }
         return population[index];
+    }
+
+    private void createAlert(View v, String msg) {
+        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(v.getContext());
+        alertBuilder.setTitle("Mutation");
+        alertBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
     }
 }
