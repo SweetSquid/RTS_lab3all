@@ -1,6 +1,7 @@
 package com.example.lab3.ui.lab32;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.lab3.R;
@@ -80,8 +82,7 @@ public class Lab32Fragment extends Fragment implements View.OnClickListener {
             w1Result.setText(String.format("W1: %.3f", w1));
             w2Result.setText(String.format("W2: %.3f", w2));
             timeResult.setText(String.format("%.2f ms", (double) execTimeMcs / 1_000_000));
-            iterationsResult.setText("Iterations: " + iterations);
-
+            createAlert(view, "Iterations: " + iterations);
         } else {
             String reason = "Training failed!";
             if (iterations >= iterationsNum) {
@@ -99,5 +100,20 @@ public class Lab32Fragment extends Fragment implements View.OnClickListener {
                 && P < points[1][0] * w1 + points[1][1] * w2
                 && P > points[2][0] * w1 + points[2][1] * w2
                 && P > points[3][0] * w1 + points[3][1] * w2;
+    }
+
+    private void createAlert(View v, String msg) {
+        final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(v.getContext());
+        alertBuilder.setTitle("Iterations count");
+        alertBuilder
+                .setMessage(msg)
+                .setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
     }
 }
